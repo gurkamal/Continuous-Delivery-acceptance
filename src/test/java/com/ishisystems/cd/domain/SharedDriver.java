@@ -8,6 +8,7 @@ import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.io.ByteArrayInputStream;
@@ -24,7 +25,7 @@ import java.io.ByteArrayInputStream;
  */
 
 public class SharedDriver extends EventFiringWebDriver {
-    private static final WebDriver REAL_DRIVER = new ChromeDriver();
+    private static final WebDriver REAL_DRIVER = new FirefoxDriver();
 
     static {
         Runtime.getRuntime().addShutdownHook(new Thread() {
