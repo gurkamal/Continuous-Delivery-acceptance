@@ -21,8 +21,9 @@ public class ArtifactsStepDefs {
         this.artifactPageObject = new ArtifactPageObject(webDriver);
     }
 
-    @Given("^I am on the front page$")
-    public void I_am_on_the_front_page() throws Throwable {
+    @Given("^I am on the front page using locale (.+)$")
+    public void I_am_on_the_front_page(String locale) throws Throwable {
+        // Not using locale as of now
         artifactPageObject.navigateToPage();
     }
 
@@ -31,9 +32,8 @@ public class ArtifactsStepDefs {
         artifactPageObject.saveArtifactDetails("com.yt.ishisystems", "continuousDelivery", "1.0", "war");
     }
 
-    @Then("^A confirmation page should show the artifact saved$")
-    public void a_confirmation_page_should_show_the_artifact_saved() throws Throwable {
-        assertTrue(artifactPageObject.matchSavedArtifactDetails());
-        //Do appropriate assertions "The artifact has been saved" "<td>com.ishisystems</td><td>cicd</td><td>1.0</td><td>war</td>"
+    @Then("^A confirmation page should show the artifact saved with confirmation message - (.+)$")
+    public void a_confirmation_page_should_show_the_artifact_saved_with_confirmation_message(String confirmationMessage) throws Throwable {
+        assertTrue(artifactPageObject.matchSavedArtifactDetails(confirmationMessage));
     }
 }

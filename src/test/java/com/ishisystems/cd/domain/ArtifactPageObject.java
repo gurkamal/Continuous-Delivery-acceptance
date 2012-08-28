@@ -43,9 +43,9 @@ public class ArtifactPageObject {
         webDriver.findElement(By.id("artifact")).submit();
     }
 
-    public boolean matchSavedArtifactDetails()
+    public boolean matchSavedArtifactDetails(String confirmationMessage)
     {
-        if(webDriver.getPageSource().contains("Artefakten er lagret.")){
+        if(webDriver.getPageSource().contains(confirmationMessage)){
             if(webDriver.findElement(By.id("groupId")).getAttribute("value").equals(groupId) &&
                     webDriver.findElement(By.id("artifactId")).getAttribute("value").equals(artifactId)
                     && webDriver.findElement(By.id("version")).getAttribute("value").equals(version)
