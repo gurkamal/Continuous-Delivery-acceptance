@@ -16,4 +16,4 @@
   Scenario: Search an artifact
       Given I have saved an artifact
       When I go to the search page
-      Then The artifact should get listed on the page
+      Then The artifact should get listed in the table on the page
