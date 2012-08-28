@@ -1,5 +1,6 @@
  Feature: Artifact lifecycle
 
+  @ignore
   Scenario: Addition of an artifact using english
     Given I am on the front page using locale en/US
     When Valid artifact details are submitted
